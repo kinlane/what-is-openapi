@@ -10,18 +10,15 @@
 		<link rel="stylesheet" href="/what-is-openapi/css/theme/black.css">
 
 		<style>
-			.t1{
-				padding-left: 5px;
-			}
-			.t2{
-				padding-left: 10px;
-			}
-			.t3{
-				padding-left: 15px;
-			}
-			.t4{
-				padding-left: 20px;
-			}
+			.code
+				{
+				text-align:left;
+				font-size:11px;
+				height: 400px;
+				overflow: auto;
+				border: 1px solid #FFF;
+				padding: 5px;
+				}
 		</style>
 
 	</head>
@@ -37,8 +34,7 @@
 				<section>
 					<h2>Schema</h2>
 					<p>Every OpenAPI begins with defining the schema that will be used in requests and responses.</p>
-					<div style="text-align:left; font-size:11px; height: 400px; overflow: auto; border: 1px solid #FFF; padding: 5px;">
-						<code style="font-size:16px;">
+					<div style="code">
 					  schemas:<br>
 					  &nbsp;&nbsp;application:<br>
 					  &nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
@@ -46,7 +42,6 @@
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
-						</code>
 					</div>
 				</section>
 
