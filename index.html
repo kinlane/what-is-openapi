@@ -860,6 +860,88 @@
 					</div>
 				</section>
 
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">AsyncAPI - Info Collection</h2>
+					<p style="font-size: 26px; text-align: left;">Like the OpenAPI specification, AsyncAPI has an info collection, providing a title, description, and versioning for the API.</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						asyncapi: '1.2.0'<br>
+						&nbsp;info:<br>
+						&nbsp;&nbsp;title: 'Traffic Management Microkernel (TMM) API'<br>
+						&nbsp;&nbsp;description: 'This is an API definition for the Traffic Management Microkernel (TMM) API which uses NATS'<br>
+						&nbsp;&nbsp;version: '1.0.0'<br>
+					</div>
+				</section>
+
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">AsyncAPI - Server Collection</h2>
+					<p style="font-size: 26px; text-align: left;">It also has a servers collection, but allows you to go beyond HTTP 1.1, and define HTTP/2, HTTP/3, and other transport protocols.</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						&nbsp;servers:<br>
+						&nbsp;&nbsp;- url: {ip_address}:{port}<br>
+						&nbsp;&nbsp;&nbsp;scheme: tcp<br>
+						&nbsp;&nbsp;&nbsp;description: The default NATS location.<br>
+						&nbsp;&nbsp;&nbsp;variables:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;ip_address:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: The ip address or domain for the server.<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default: 'localhost'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;port:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: Secure connection (TLS) is available through port 4244.<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default: '4244'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enum:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- '4244'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- '4245'<br>
+					</div>
+				</section>
+
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">AsyncAPI - Schema Collection</h2>
+					<p style="font-size: 26px; text-align: left;">OpenAPI and Async API can both share schema across APIs defined within each specification, allowing for a shared JSON schema for use across all APIs being defined across the internal and external landscape.</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						&nbsp;components:<br>
+						<br>
+						&nbsp;&nbsp;schemas:<br>
+						&nbsp;&nbsp;&nbsp;config:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;applications:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/application"<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sslCertificatePairs:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/sentAt"<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;application:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;title: App<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: Application ID<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;sslCertificatePair:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;title: SslCertificatePair<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: SSL client certificate pair ID<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateContent:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateKeyContent:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificatePath:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateKeyPath:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selfLink:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sslProfileId:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string
+					</div>
+				</section>
+
 			</div>
 		</div>
 
