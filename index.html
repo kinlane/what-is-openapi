@@ -263,7 +263,7 @@
 
 				<section>
 					<h2 style="font-size: 36px; color: #c71558;">Let's break down what that means!</h2>
-				</section>				
+				</section>
 
 				<section>
 					<h2 style="font-size: 36px; color: #c71558;">OpenAPI Information Collection</h2>
@@ -394,6 +394,51 @@
 						&nbsp;&nbsp;&nbsp;operationId: getApplication<br>
 						&nbsp;&nbsp;&nbsp;tags:<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;- Application<br>
+					</div>
+				</section>
+
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">OpenAPI Path - Headers</h2>
+					<p style="font-size: 26px; text-align: left;">For each path method, you can provide details of the headers that can be submitted as part of each API request</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- name: Accept-Language<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: header<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+					</div>
+				</section>
+
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">OpenAPI Path - Parameters</h2>
+					<p style="font-size: 26px; text-align: left;">For each path method, you can provide details of the query and path parameters that are available for use as part of each API request.</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- name: filter<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: query<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fields:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/fields"<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: integer<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum: 0<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;limit:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: integer<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum: 0<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skip:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: integer<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum: 0<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: array<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;include:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: array<br>
 					</div>
 				</section>
 
