@@ -729,7 +729,7 @@
 				</section>
 
 				<section>
-					<h2 style="font-size: 36px; color: #c71558;">Components Collections - Centralization & Resuse</h2>
+					<h2 style="font-size: 36px; color: #c71558;">OpenAPI Components Collections - Centralization & Reuse</h2>
 					<p style="font-size: 26px; text-align: left;">The components collections stores the schema used across each API response, but also centralizes examples, request bodies, responses, and other reusable components.</p>
 					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
 						components:<br>
@@ -757,7 +757,7 @@
 				</section>
 
 				<section>
-					<h2 style="font-size: 36px; color: #c71558;">Vendor Extensions</h2>
+					<h2 style="font-size: 36px; color: #c71558;">OpenAPI Vendor Extensions</h2>
 					<p style="font-size: 26px; text-align: left;">If there isn't an existing collection that meets the needs of defining each API, vendor extensions can be defined to extend OpenAPI, and provide the values needed.</p>
 					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
 						components:<br>
@@ -1075,6 +1075,80 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sslProfileId:<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string
+					</div>
+				</section>
+
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">Async API Components Collections - Centralization & Reuse</h2>
+					<p style="font-size: 26px; text-align: left;">As with OpenAPI, AsyncAPI allows for elements to be stored in a centralized components collection for organiation and reuse.</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						&nbsp;components:<br>
+						&nbsp;&nbsp;messages:<br>
+						&nbsp;&nbsp;&nbsp;config:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;summary: The message wrapper for the default message<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;payload:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/config"<br>
+						<br>
+						&nbsp;&nbsp;schemas:<br>
+						&nbsp;&nbsp;&nbsp;config:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;applications:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/application"<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sslCertificatePairs:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/sentAt"<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;application:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;title: App<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: Application ID<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;sslCertificatePair:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;title: SslCertificatePair<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: SSL client certificate pair ID<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateContent:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateKeyContent:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificatePath:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateKeyPath:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selfLink:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sslProfileId:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string
+					</div>
+				</section>
+
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">Async API - Vendor Extensions</h2>
+					<p style="font-size: 26px; text-align: left;">If there isn't an existing collection that meets the needs of defining each API, vendor extensions can be defined to extend OpenAPI, and provide the values needed.</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						components:<br>
+						&nbsp;schemas:<br>
+						&nbsp;&nbsp;application:<br>
+						&nbsp;&nbsp;&nbsp;title: App<br>
+						&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;x-uniqueId: true<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;x-mappings:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targetClass: virtual<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targetProperty: appName<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
 					</div>
 				</section>
 
