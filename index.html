@@ -459,19 +459,28 @@
 					<p style="font-size: 26px; text-align: left;">Then you can also define the response for each API response, providing details of media type, and the schema that will be returned.</p>
 					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
 						&nbsp;&nbsp;&nbsp;responses:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;'204':<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: App PATCH success<br>
-						&nbsp;&nbsp;&nbsp;parameters:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;- name: id<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: path<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required: true<br>
-						&nbsp;&nbsp;&nbsp;requestBody:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/schemas/application'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;'200':<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: App model instance<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/schemas/application'<br>
+					</div>
+				</section>
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">OpenAPI Path - Examples</h2>
+					<p style="font-size: 26px; text-align: left;">You can also define examples of API requests and responses, which can be used in documentation and mocking of each API.</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						&nbsp;&nbsp;&nbsp;responses:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;'200':<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: App model instance<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/schemas/application'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;example:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 3d3883fa343<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: Application Name<br>
 					</div>
 				</section>
 
