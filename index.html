@@ -942,6 +942,142 @@
 					</div>
 				</section>
 
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">AsyncAPI - Messages Collection</h2>
+					<p style="font-size: 26px; text-align: left;">Then AsncAPI gives you the ability to define the messages being passed back and forth, providing references to the shared schema being used.</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						&nbsp;components:<br>
+						&nbsp;&nbsp;messages:<br>
+						&nbsp;&nbsp;&nbsp;config:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;summary: The message wrapper for the default message<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;payload:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/config"<br>
+					</div>
+				</section>
+
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">AsyncAPI - Topics</h2>
+					<p style="font-size: 26px; text-align: left;">Additionally you have the ability to define topics or subjects of messages that are being published or subscribed to via an API./p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						&nbsp;topics:<br>
+						&nbsp;&nbsp;icontrol.config:<br>
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- $ref: '#/components/parameters/config'<br>
+						&nbsp;&nbsp;&nbsp;publish:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/messages/config'<br>
+					</div>
+				</section>
+
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">AsyncAPI - Events</h2>
+					<p style="font-size: 26px; text-align: left;">Beyond topics, events emitted from each API can be defined, providing a machine readable map of events being sent and received./p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						&nbsp;events:<br>
+						&nbsp;&nbsp;received:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- $ref: '#/components/parameters/config'<br>
+						&nbsp;&nbsp;sent:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- $ref: '#/components/parameters/config'<br>
+					</div>
+				</section>
+
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">AsyncAPI - Streams</h2>
+					<p style="font-size: 26px; text-align: left;">AsyncAPI also has the ability to define streams of messages being made available through API being defined./p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						&nbsp;stream:<br>
+						&nbsp;&nbsp;framing:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;type: "chunked"<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;delimiter: "\r\n"<br>
+						&nbsp;&nbsp;read:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- $ref: '#/components/parameters/heartbeat'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- $ref: '#/components/parameters/config'<br>
+					</div>
+				</section>
+
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">Working In Concert?</h2>
+					<p style="font-size: 26px; text-align: left;">To define internal and external APIs that are using transport protocols beyond just HTTP 1.1, but allowing schema, tags, and other components to shared between OpenAPI AsyncAPI.</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						asyncapi: '1.2.0'<br>
+						&nbsp;info:<br>
+						&nbsp;&nbsp;title: 'Traffic Management Microkernel (TMM) API'<br>
+						&nbsp;&nbsp;description: 'This is an API definition for the Traffic Management Microkernel (TMM) API which uses NATS'<br>
+						&nbsp;&nbsp;version: '1.0.0'<br>
+						<br>
+						&nbsp;baseTopic: icontrol.config<br>
+						<br>
+						&nbsp;servers:<br>
+						&nbsp;&nbsp;- url: {ip_address}:{port}<br>
+						&nbsp;&nbsp;&nbsp;scheme: tcp<br>
+						&nbsp;&nbsp;&nbsp;description: The default NATS location.<br>
+						&nbsp;&nbsp;&nbsp;variables:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;ip_address:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: The ip address or domain for the server.<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default: 'localhost'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;port:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: Secure connection (TLS) is available through port 4244.<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default: '4244'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enum:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- '4244'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- '4245'<br>
+						<br>
+						&nbsp;topics:<br>
+						&nbsp;&nbsp;icontrol.config:<br>
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- $ref: '#/components/parameters/config'<br>
+						&nbsp;&nbsp;&nbsp;publish:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/messages/config'<br>
+						<br>
+						&nbsp;components:<br>
+						&nbsp;&nbsp;messages:<br>
+						&nbsp;&nbsp;&nbsp;config:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;summary: The message wrapper for the default message<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;payload:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/config"<br>
+						<br>
+						&nbsp;&nbsp;schemas:<br>
+						&nbsp;&nbsp;&nbsp;config:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;applications:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/application"<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sslCertificatePairs:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/sentAt"<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;application:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;title: App<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: Application ID<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;sslCertificatePair:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;title: SslCertificatePair<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: SSL client certificate pair ID<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateContent:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateKeyContent:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificatePath:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateKeyPath:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selfLink:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sslProfileId:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string
+					</div>
+				</section>
+
 			</div>
 		</div>
 
