@@ -34,7 +34,7 @@
 				<section>
 					<h2>Schema</h2>
 					<p>Every OpenAPI begins with defining the schema that will be used in requests and responses.</p>
-					<div style="code">
+					<div class="code">
 					  schemas:<br>
 					  &nbsp;&nbsp;application:<br>
 					  &nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
@@ -48,18 +48,16 @@
 				<section>
 					<h2>JSON Schema</h2>
 					<p>OpenAPI uses <a href="https://json-schema.org/" target="_blank">JSON Schema</a> to define not just the schema used for each API, but also validate each request or response.</p>
-					<div style="text-align:left; font-size:11px; height: 300px; overflow: auto; border: 1px solid #FFF;">
-						<code style="font-size:13px;">
+					<div class="code">
 							"$id": https://example.com/application.schema.json<br>
 							"$schema": http://json-schema.org/draft-07/schema#<br>
 							description: This is a description of an application object.<br>
 							type: object<br>
 				      properties:<br>
-				        id:<br>
-				          type: string<br>
-				        name:<br>
-				          type: string<br>
-						</code>
+				      &nbsp;&nbsp;id:<br>
+				      &nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+				      &nbsp;&nbsp;name:<br>
+				      &nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
 					</div>
 				</section>
 
