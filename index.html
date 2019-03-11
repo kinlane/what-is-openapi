@@ -758,7 +758,7 @@
 
 				<section>
 					<h2 style="font-size: 36px; color: #c71558;">Vendor Extensions</h2>
-					<p style="font-size: 26px; text-align: left;">If there isn't an existing collection that meets the needs of defining each API, vendor extensions can be defined to extend OpenAPI.</p>
+					<p style="font-size: 26px; text-align: left;">If there isn't an existing collection that meets the needs of defining each API, vendor extensions can be defined to extend OpenAPI, and provide the values needed.</p>
 					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
 						components:<br>
 						&nbsp;schemas:<br>
@@ -767,20 +767,12 @@
 						&nbsp;&nbsp;&nbsp;properties:<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;x-uniqueId: true<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;x-mappings:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targetClass: virtual<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targetProperty: appName<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
-						&nbsp;examples:<br>
-						&nbsp;&nbsp;name:<br>
-						&nbsp;&nbsp;&nbsp;value:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: 3d3883fa343<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: Application Name<br>
-						&nbsp;responses:<br>
-						&nbsp;&nbsp;'200':<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;description: App model instance<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/schemas/application'<br>
 					</div>
 				</section>
 
