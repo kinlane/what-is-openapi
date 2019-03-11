@@ -484,6 +484,242 @@
 					</div>
 				</section>
 
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">Working In Concert</h2>
+					<p style="font-size: 26px; text-align: left;">All of these OpenAPI building blocks work together to define the surface area of each API, providing a machine readable definition of the capability it provides.</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						openapi: 3.0.0 <br>
+						info:<br>
+						&nbsp;title: mBIP Application API<br>
+						&nbsp;description: This is an API for managing applications on the modular Big IP platform.<br>
+						&nbsp;version: 1.0.0<br>
+						servers:<br>
+						&nbsp;- url: 'https://localhost:5443'<br>
+						paths:<br>
+						&nbsp;'/icontrol/v1/applications/{application_id}':<br>
+						&nbsp;&nbsp;put:<br>
+						&nbsp;&nbsp;&nbsp;tags:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- Application<br>
+						&nbsp;&nbsp;&nbsp;responses:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;'204':<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: App PUT success<br>
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- name: application_id<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: path<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required: true<br>
+						&nbsp;&nbsp;&nbsp;requestBody:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/schemas/application'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;x-parameter-index: 1<br>
+						&nbsp;&nbsp;patch:<br>
+						&nbsp;&nbsp;&nbsp;tags:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- Application<br>
+						&nbsp;&nbsp;&nbsp;responses:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;'204':<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: App PATCH success<br>
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- name: id<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: path<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required: true<br>
+						&nbsp;&nbsp;&nbsp;requestBody:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/schemas/application'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;x-parameter-index: 1<br>
+						&nbsp;&nbsp;get:<br>
+						&nbsp;&nbsp;&nbsp;tags:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- Application<br>
+						&nbsp;&nbsp;&nbsp;responses:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;'200':<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: App model instance<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/schemas/application'<br>
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- name: id<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: path<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required: true<br>
+						&nbsp;&nbsp;delete:<br>
+						&nbsp;&nbsp;&nbsp;tags:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- Application<br>
+						&nbsp;&nbsp;&nbsp;responses:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;'204':<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: App DELETE success<br>
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- name: id<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: path<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required: true<br>
+						&nbsp;/icontrol/v1/applications:<br>
+						&nbsp;&nbsp;post:<br>
+						&nbsp;&nbsp;&nbsp;x-controller-name: Application<br>
+						&nbsp;&nbsp;&nbsp;x-operation-name: create<br>
+						&nbsp;&nbsp;&nbsp;tags:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- Application<br>
+						&nbsp;&nbsp;&nbsp;responses:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;'200':<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: App model instance<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/schemas/application'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;'400':<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: oren haia po<br>
+						&nbsp;&nbsp;&nbsp;requestBody:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/schemas/application'<br>
+						&nbsp;&nbsp;patch:<br>
+						&nbsp;&nbsp;&nbsp;tags:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- Application<br>
+						&nbsp;&nbsp;&nbsp;responses:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;'200':<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: App PATCH success count<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: number<br>
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- name: where<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: query<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style: deepObject<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;explode: true<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;requestBody:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/schemas/application'<br>
+						&nbsp;&nbsp;get:<br>
+						&nbsp;&nbsp;&nbsp;tags:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- Application<br>
+						&nbsp;&nbsp;&nbsp;responses:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;'200':<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: Array of App model instances<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: array<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/schemas/application'<br>
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- name: filter<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: query<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style: deepObject<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;explode: true<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fields:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/fields"<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: integer<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum: 0<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;limit:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: integer<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum: 0<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skip:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: integer<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum: 0<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: array<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;include:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: array<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/include"<br>
+						&nbsp;/icontrol/v1/applications/count:<br>
+						&nbsp;&nbsp;get:<br>
+						&nbsp;&nbsp;&nbsp;summary: Application Count<br>
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- name: where<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in: query<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style: deepObject<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;explode: true<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;tags:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- Applications<br>
+						&nbsp;&nbsp;&nbsp;responses:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;'200':<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: A successful response.<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/json:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;schema:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/appCount"<br>
+						components:<br>
+						&nbsp;schemas:<br>
+						&nbsp;&nbsp;application:<br>
+						&nbsp;&nbsp;&nbsp;title: App<br>
+						&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: Application ID<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;selfLink:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;appCount:<br>
+						&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;count:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: number<br>
+						&nbsp;&nbsp;include:<br>
+						&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;relation:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;scope:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fields:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;properties: {}<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: integer<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum: 0<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;limit:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: integer<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum: 0<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skip:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: integer<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum: 0<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: array<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;fields:<br>
+						&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: boolean<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: boolean<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;selfLink:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: boolean<br>
+					</div>
+				</section>
+
 			</div>
 		</div>
 
