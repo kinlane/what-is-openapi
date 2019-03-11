@@ -776,6 +776,90 @@
 					</div>
 				</section>
 
+				<section>
+					<h2 style="font-size: 36px; color: #c71558;">What Is AsyncAPI?</h2>
+					<p style="font-size: 26px; text-align: left;">OpenAPI is for HTTP 1.1 request and response APIs, and Async API is for publish and subscribe, message, and event based APIs that use HTTP/2, and TCP as a transport.</p>
+					<div style="text-align:left; font-size:20px; height: 350px; overflow: auto; border: 2px solid #FFF; padding: 15px;">
+						asyncapi: '1.2.0'<br>
+						&nbsp;info:<br>
+						&nbsp;&nbsp;title: 'Traffic Management Microkernel (TMM) API'<br>
+						&nbsp;&nbsp;description: 'This is an API definition for the Traffic Management Microkernel (TMM) API which uses NATS'<br>
+						&nbsp;&nbsp;version: '1.0.0'<br>
+						<br>
+						&nbsp;baseTopic: icontrol.config<br>
+						<br>
+						&nbsp;servers:<br>
+						&nbsp;&nbsp;- url: {ip_address}:{port}<br>
+						&nbsp;&nbsp;&nbsp;scheme: tcp<br>
+						&nbsp;&nbsp;&nbsp;description: The default NATS location.<br>
+						&nbsp;&nbsp;&nbsp;variables:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;ip_address:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: The ip address or domain for the server.<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default: 'localhost'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;port:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: Secure connection (TLS) is available through port 4244.<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default: '4244'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enum:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- '4244'<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- '4245'<br>
+						<br>
+						&nbsp;topics:<br>
+						&nbsp;&nbsp;icontrol.config:<br>
+						&nbsp;&nbsp;&nbsp;parameters:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;- $ref: '#/components/parameters/config'<br>
+						&nbsp;&nbsp;&nbsp;publish:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;$ref: '#/components/messages/config'<br>
+						<br>
+						&nbsp;components:<br>
+						&nbsp;&nbsp;messages:<br>
+						&nbsp;&nbsp;&nbsp;config:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;summary: The message wrapper for the default message<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;payload:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/config"<br>
+						<br>
+						&nbsp;&nbsp;schemas:<br>
+						&nbsp;&nbsp;&nbsp;config:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;type: object<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;applications:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/application"<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sslCertificatePairs:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref: "#/components/schemas/sentAt"<br>
+						<br>
+						&nbsp;&nbsp;&nbsp;application:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;title: App<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: Application ID<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						&nbsp;&nbsp;&nbsp;sslCertificatePair:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;title: SslCertificatePair<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;properties:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: SSL client certificate pair ID<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateContent:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateKeyContent:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificatePath:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;certificateKeyPath:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selfLink:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sslProfileId:<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: string
+					</div>
+				</section>
+
 			</div>
 		</div>
 
